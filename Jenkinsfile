@@ -61,14 +61,6 @@ pipeline{
                     environment name:'SKIP',value:'N'
                 }
              stages{    
-                        stage('Destroy n/w Infra'){
-                            steps{
-                                sh '''
-                                cd networking
-                                terraform init
-                                terraform destroy -auto-approve'''
-                            }
-                                }
                         stage('Validate n/w Infra'){
                             steps{
                                 sh '''
