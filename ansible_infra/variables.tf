@@ -1,3 +1,3 @@
 variable "ansible_bucket"{
-    default="<bucket_name>"
+    default="ansible-bucket-20230808"
 }
