@@ -42,8 +42,7 @@
 
 ## db-[99:101]-node.example.com
 
-ec2-107-22-123-73.compute-1.amazonaws.com
+
 
 [kubenodes]
-
-
+ec2-107-22-123-73.compute-1.amazonaws.com
