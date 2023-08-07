@@ -7,7 +7,7 @@ terraform {
 
   backend "s3" {
     bucket = "state-bucket-20230809"
-    key    = "<state_name>"
+    key    = "state_name"
     region = "us-east-1"
   }
 }
@@ -39,7 +39,7 @@ data "aws_security_group" "kube_sg_id" {
 
 resource "aws_key_pair" "kube_cp_key" {
   key_name   = "etkube-cp-instance-key"
-  public_key = "<ssh_key>"
+  public_key = file("${path.module}/ssh_key/id_rsa.pub")
 }
 
 
