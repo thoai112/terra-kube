@@ -21,7 +21,7 @@ data "aws_subnet" "kube_subnet_id" {
   
   filter {
     name   = "tag:Name"
-    values = ["kube_subnet"]
+    values = "kube_subnet"
   }
 
 }
@@ -30,7 +30,7 @@ data "aws_security_group" "kube_sg_id" {
   
   filter {
     name   = "tag:Name"
-    values = ["kube_sg"]
+    values = "kube_sg"
   }
 
 }
