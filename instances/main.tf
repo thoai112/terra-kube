@@ -6,7 +6,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "<bucket_name>"
+    bucket = "state-bucket-20230808"
     key    = "<state_name>"
     region = "us-east-1"
   }
