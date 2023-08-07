@@ -62,11 +62,12 @@ pipeline{
                 }
              stages{    
                         stage('Destroy n/w Infra'){
-                                    steps{
-                                        sh '''
-                                        cd networking
-                                        terraform destroy --auto-approve'''
-                                    }
+                            steps{
+                                sh '''
+                                cd networking
+                                terraform init
+                                terraform destroy -auto-approve'''
+                            }
                                 }
                         stage('Validate n/w Infra'){
                             steps{
