@@ -8,8 +8,8 @@ pipeline{
         SKIP="N"
         TERRADESTROY="N"
         FIRST_DEPLOY="Y"
-        STATE_BUCKET="<bucket_name>"
-        ANSIBLE_BUCKET_NAME="<ansible_bucket>"
+        STATE_BUCKET="state-bucket-20230808"
+        ANSIBLE_BUCKET_NAME="ansible-bucket-20230808"
     }
 
 
@@ -23,7 +23,7 @@ pipeline{
             }
             steps{
                 sh'''
-                aws s3 mb s3://<bucket_name>'''
+                aws s3 mb s3://state-bucket-20230808'''
                 
             }
         }
