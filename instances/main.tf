@@ -24,7 +24,6 @@ data "aws_subnet" "kube_subnet_id" {
     values = ["kube_subnet"]
   }
 
-  most_recent = true
 }
 
 data "aws_security_group" "kube_sg_id" {
@@ -34,7 +33,6 @@ data "aws_security_group" "kube_sg_id" {
     values = ["kube_sg"]
   }
 
-  most_recent = true
 }
 
 resource "aws_key_pair" "kube_cp_key" {
