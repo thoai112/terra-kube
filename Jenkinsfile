@@ -119,7 +119,7 @@ pipeline{
                                         cd ansible_infra
                                         cd ansible_playbooks
                                         env
-                                        sudo ansible-playbook identify_controlplane.yml -i inv
+                                        ansible-playbook identify_controlplane.yml -i inv -K
                                         cat inv
                                         """
                                         }
