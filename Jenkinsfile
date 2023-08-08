@@ -14,72 +14,72 @@ pipeline{
 
 
 
-    stages{
-        stage("Create Terraform State Buckets"){
-            when{
-                environment name:'FIRST_DEPLOY',value:'Y'
-                environment name:'TERRADESTROY',value:'N'
-                environment name:'SKIP',value:'N'
-            }
-            steps{
-                sh'''
-                aws s3 mb s3://state-bucket-20230808'''
+    // stages{
+    //     stage("Create Terraform State Buckets"){
+    //         when{
+    //             environment name:'FIRST_DEPLOY',value:'Y'
+    //             environment name:'TERRADESTROY',value:'N'
+    //             environment name:'SKIP',value:'N'
+    //         }
+    //         steps{
+    //             sh'''
+    //             aws s3 mb s3://state-bucket-20230808'''
                 
-            }
-        }
+    //         }
+    //     }
 
-        stage("Deploy Ansible Infra"){
-            when{
-                    environment name:'TERRADESTROY',value:'N'
-                    environment name:'SKIP',value:'N'
-                }
-             stages{
-                        stage('Validate Ansible Infra'){
-                            steps{
-                                sh '''
-                                cd ansible_infra
-                                terraform init
-                                terraform validate'''
-                            }
-                        }
-                        stage('Deploy Ansible Infra'){
-                            steps{
-                                sh '''
-                                cd ansible_infra
-                                terraform plan -out outfile
-                                terraform apply outfile'''
-                            }
-                        }
-                    }
+    //     stage("Deploy Ansible Infra"){
+    //         when{
+    //                 environment name:'TERRADESTROY',value:'N'
+    //                 environment name:'SKIP',value:'N'
+    //             }
+    //          stages{
+    //                     stage('Validate Ansible Infra'){
+    //                         steps{
+    //                             sh '''
+    //                             cd ansible_infra
+    //                             terraform init
+    //                             terraform validate'''
+    //                         }
+    //                     }
+    //                     stage('Deploy Ansible Infra'){
+    //                         steps{
+    //                             sh '''
+    //                             cd ansible_infra
+    //                             terraform plan -out outfile
+    //                             terraform apply outfile'''
+    //                         }
+    //                     }
+    //                 }
 
-        }
+    //     }
 
 
-        stage("Deploy Networking"){
-            when{
-                    environment name:'TERRADESTROY',value:'N'
-                    environment name:'SKIP',value:'N'
-                }
-             stages{    
-                        stage('Validate n/w Infra'){
-                            steps{
-                                sh '''
-                                cd networking
-                                terraform init
-                                terraform validate'''
-                            }
-                        }
-                        stage('Deploy n/w Infra'){
-                            steps{
-                                sh '''
-                                cd networking
-                                terraform plan -out outfile
-                                terraform apply outfile'''
-                            }
-                        }
-                    }
+    //     stage("Deploy Networking"){
+    //         when{
+    //                 environment name:'TERRADESTROY',value:'N'
+    //                 environment name:'SKIP',value:'N'
+    //             }
+    //          stages{    
+    //                     stage('Validate n/w Infra'){
+    //                         steps{
+    //                             sh '''
+    //                             cd networking
+    //                             terraform init
+    //                             terraform validate'''
+    //                         }
+    //                     }
+    //                     stage('Deploy n/w Infra'){
+    //                         steps{
+    //                             sh '''
+    //                             cd networking
+    //                             terraform plan -out outfile
+    //                             terraform apply outfile'''
+    //                         }
+    //                     }
+    //                 }
 
-        }
+    //     }
 
         stage("Deploy Controlplane"){
              when{
