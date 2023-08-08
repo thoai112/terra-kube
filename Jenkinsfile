@@ -119,7 +119,7 @@ pipeline{
                                         cd ansible_infra
                                         cd ansible_playbooks
                                         env
-                                        ansible-playbook identify_controlplane.yml -i inv -b
+                                        ansible-playbook identify_controlplane.yml -i inv --become-user ec2-user
                                         cat inv
                                         """
                                         }
