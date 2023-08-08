@@ -14,7 +14,7 @@ pipeline{
 
 
 
-    // stages{
+    stages{
     //     stage("Create Terraform State Buckets"){
     //         when{
     //             environment name:'FIRST_DEPLOY',value:'Y'
