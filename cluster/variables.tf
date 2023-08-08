@@ -1,9 +1,9 @@
 variable "cluster_name"{
-    default = "cluster_bb_20231010"
+    default = "cluster-bb-20231010"
 }
 
 variable "state_bucket"{
-    default = "state_bb_20231010"
+    default = "state-bb-20231010"
 }
 
 variable "state_key"{
