@@ -9,8 +9,8 @@ pipeline{
         SKIP="N"
         TERRADESTROY="N"
         FIRST_DEPLOY="Y"
-        STATE_BUCKET="<bucket>"
-        CLUSTER_NAME="<cluster_name>"
+        STATE_BUCKET="state_bb_20231010"
+        CLUSTER_NAME="cluster_bb_20231010"
     }
 
     stages{
@@ -22,7 +22,7 @@ pipeline{
             }
             steps{
                 sh'''
-                aws s3 mb s3://<bucket_name>'''
+                aws s3 mb s3://state_bb_20231010'''
                 
             }
         }

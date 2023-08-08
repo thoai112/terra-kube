@@ -1,13 +1,13 @@
 variable "cluster_name"{
-    default = "<name>"
+    default = "cluster_bb_20231010"
 }
 
 variable "state_bucket"{
-    default = "<name>"
+    default = "state_bb_20231010"
 }
 
 variable "state_key"{
-    default = "<key_val>"
+    default = "key_val"
 }
 
 variable "state_region"{

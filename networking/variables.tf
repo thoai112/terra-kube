@@ -1,3 +1,3 @@
 variable "cluster_name"{
-    default = "<name>"
+    default = "cluster_bb_20231010"
 }
